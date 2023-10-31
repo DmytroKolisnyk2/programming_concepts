@@ -42,13 +42,14 @@ def attempt_letter(guessed_word):
         guessed_letters.add(letter)
         return
 
-    global mistakes_count
-    mistakes_count += 1
-    print(f"No such letter! {mistakes_count}/{ALLOWED_MISTAKES} mistakes")
+    print(f"No such letter! {mistakes_count + 1}/{ALLOWED_MISTAKES} mistakes")
+    return mistakes_count + 1
 
 
 while mistakes_count < ALLOWED_MISTAKES:
-    attempt_letter(get_guessed_word())
+    updated_mistakes_count = attempt_letter(get_guessed_word())
+    if updated_mistakes_count:
+        mistakes_count = updated_mistakes_count
     if get_guessed_word() == WORD:
         print(f"Congratulations, you guessed the word!. The word was {WORD}")
         exit()
