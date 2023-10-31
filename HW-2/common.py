@@ -63,7 +63,7 @@ def calculate_down_payment_time(
         saved_down_payment *= 1 + investments_percentage / (12 * 100)
         saved_down_payment += monthly_savings
 
-        if (month_count) % 6 == 0:
+        if (month_count) % 6 == 1:
             user_salary += salary_growth
             monthly_savings = user_salary * percent_of_savings / 100
 
